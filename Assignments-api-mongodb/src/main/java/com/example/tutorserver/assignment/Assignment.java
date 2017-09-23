@@ -10,17 +10,17 @@ public class Assignment {
 	@Id
 	private String Id;
 	private String name;
-	private int week;
+	private boolean show;
 	private String filePath;
 	private List<String> codeFile;
 
 	public Assignment() {
 	}
 	
-	public Assignment(String name, int week, String filePath, List<String> codeFile) {
+	public Assignment(String name, boolean show, String filePath, List<String> codeFile) {
 		super();
 		this.name = name;
-		this.week = week;
+		this.show = show;
 		this.filePath = filePath;
 		this.codeFile = codeFile;
 	}
@@ -34,11 +34,11 @@ public class Assignment {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getWeek() {
-		return week;
+	public boolean isShow() {
+		return show;
 	}
-	public void setWeek(int week) {
-		this.week = week;
+	public void setShow(boolean show) {
+		this.show = show;
 	}
 	public String getFilePath() {
 		return filePath;

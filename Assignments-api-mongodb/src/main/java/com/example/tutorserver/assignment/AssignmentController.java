@@ -51,6 +51,8 @@ public class AssignmentController {
 				!tempCodeFile.getName().isEmpty() && !tempCodeFile.getName().equals("Assignment00"))
 		{
 			tempCodeFile.setCodeFile(assignment.getCodeFile());
+			tempCodeFile.setShow(assignment.isShow());
+			tempCodeFile.setFilePath(assignment.getFilePath());
 			this.assignmentRepository.save(tempCodeFile);
 		}
 		else

@@ -50,7 +50,7 @@ public class AssignmentDbSeeder implements CommandLineRunner {
 		
 		Assignment assignment00 = new Assignment(
 				"Assignment00",
-				0,
+				true,
 				"FilePath of the assignment in server.",
 				defaultContent
 				);
