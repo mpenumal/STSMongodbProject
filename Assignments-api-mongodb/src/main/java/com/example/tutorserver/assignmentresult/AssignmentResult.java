@@ -11,17 +11,15 @@ public class AssignmentResult {
 	private String Id;
 	private String studentId;
 	private String assignmentName;
-	private int attemptCount;
 	private List<String> outputFile;
 
 	public AssignmentResult() {
 	}
 	
-	public AssignmentResult(String studentId, String assignmentName, int attemptCount, List<String> outputFile) {
+	public AssignmentResult(String studentId, String assignmentName, List<String> outputFile) {
 		super();
 		this.studentId = studentId;
 		this.assignmentName = assignmentName;
-		this.attemptCount = attemptCount;
 		this.outputFile = outputFile;
 	}
 
@@ -39,12 +37,6 @@ public class AssignmentResult {
 	}
 	public void setAssignmentName(String assignmentName) {
 		this.assignmentName = assignmentName;
-	}
-	public int getAttemptCount() {
-		return attemptCount;
-	}
-	public void setAttemptCount(int attemptCount) {
-		this.attemptCount = attemptCount;
 	}
 	public List<String> getOutputFile() {
 		return outputFile;

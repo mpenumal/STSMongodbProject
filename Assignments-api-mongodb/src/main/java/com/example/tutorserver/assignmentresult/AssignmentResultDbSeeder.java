@@ -26,7 +26,6 @@ public class AssignmentResultDbSeeder implements CommandLineRunner {
 		AssignmentResult assignRes00 = new AssignmentResult(
 				"0000000000",
 				"Assignment00",
-				0,
 				defaultOutput
 				);
 		
