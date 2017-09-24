@@ -58,7 +58,10 @@ public class AssignmentResultController {
 			tempOutput.addAll(assignmentResult.getOutputFile());
 			tempResult.setOutputFile(tempOutput);
 			*/
-			tempResult.setOutputFile(assignmentResult.getOutputFile());	
+			tempResult.setOutputFile(assignmentResult.getOutputFile());
+			if (assignmentResult.getAttemptCount() > 0) {
+				tempResult.setAttemptCount(tempResult.getAttemptCount() + 1);
+			}
 			this.assignmentResultRepository.save(tempResult);
 		}
 		else

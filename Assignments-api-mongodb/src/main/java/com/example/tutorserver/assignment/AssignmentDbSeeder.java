@@ -50,13 +50,14 @@ public class AssignmentDbSeeder implements CommandLineRunner {
 		
 		Assignment assignment00 = new Assignment(
 				"Assignment00",
+				"JAVA",
 				true,
 				"FilePath of the assignment in server.",
 				defaultContent
 				);
 		
 		// drop all assignments
-		this.assignmentRepository.deleteAll();
+		//this.assignmentRepository.deleteAll();
 		
 		// add default assignments to db
 		List<Assignment> assignments = Arrays.asList(assignment00);

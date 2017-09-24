@@ -10,6 +10,7 @@ public class Assignment {
 	@Id
 	private String Id;
 	private String name;
+	private String language;
 	private boolean show;
 	private String filePath;
 	private List<String> codeFile;
@@ -17,9 +18,10 @@ public class Assignment {
 	public Assignment() {
 	}
 	
-	public Assignment(String name, boolean show, String filePath, List<String> codeFile) {
+	public Assignment(String name, String language, boolean show, String filePath, List<String> codeFile) {
 		super();
 		this.name = name;
+		this.language = language;
 		this.show = show;
 		this.filePath = filePath;
 		this.codeFile = codeFile;
@@ -33,6 +35,12 @@ public class Assignment {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getLanguage() {
+		return language;
+	}
+	public void setLanguage(String language) {
+		this.language = language;
 	}
 	public boolean isShow() {
 		return show;

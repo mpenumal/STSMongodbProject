@@ -53,6 +53,7 @@ public class AssignmentController {
 			tempCodeFile.setCodeFile(assignment.getCodeFile());
 			tempCodeFile.setShow(assignment.isShow());
 			tempCodeFile.setFilePath(assignment.getFilePath());
+			tempCodeFile.setLanguage(assignment.getLanguage());
 			this.assignmentRepository.save(tempCodeFile);
 		}
 		else

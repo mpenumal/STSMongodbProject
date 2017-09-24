@@ -26,11 +26,12 @@ public class AssignmentResultDbSeeder implements CommandLineRunner {
 		AssignmentResult assignRes00 = new AssignmentResult(
 				"0000000000",
 				"Assignment00",
+				0,
 				defaultOutput
 				);
 		
 		// drop all assignments
-		this.assignmentResultRepository.deleteAll();
+		//this.assignmentResultRepository.deleteAll();
 		
 		// add default assignments to db
 		List<AssignmentResult> assignmentResults = Arrays.asList(assignRes00);
