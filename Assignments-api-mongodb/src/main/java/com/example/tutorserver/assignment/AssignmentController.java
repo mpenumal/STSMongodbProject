@@ -1,7 +1,6 @@
 package com.example.tutorserver.assignment;
 
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
 
@@ -37,12 +36,14 @@ public class AssignmentController {
 	public void saveAssignment(@RequestBody Assignment assignment) {
 		
 		// Get file from filePath and assign to codeFile
-		File testFile = new File(assignment.getFilePath());
-		try {
-			assignment.setCodeFile(Files.readAllLines(testFile.toPath()));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if (assignment.getFilePath() != null && !assignment.getFilePath().equals("")) {
+			try {
+				File testFile = new File(assignment.getFilePath());
+				assignment.setCodeFile(Files.readAllLines(testFile.toPath()));
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		Assignment tempCodeFile = this.assignmentRepository.findByName(assignment.getName());
