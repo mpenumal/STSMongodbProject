@@ -50,15 +50,10 @@ public class AssignmentResultController {
 		if (tempResult != null && tempResult.getStudentId()!=null &&
 				!tempResult.getStudentId().isEmpty() && !tempResult.getStudentId().equals("0000000000"))
 		{
-			/*
 			List<String> tempOutput = tempResult.getOutputFile();
-			tempOutput.add("");
-			tempOutput.add("_____ _____");
 			tempOutput.add("");
 			tempOutput.addAll(assignmentResult.getOutputFile());
 			tempResult.setOutputFile(tempOutput);
-			*/
-			tempResult.setOutputFile(assignmentResult.getOutputFile());
 			this.assignmentResultRepository.save(tempResult);
 		}
 		else
