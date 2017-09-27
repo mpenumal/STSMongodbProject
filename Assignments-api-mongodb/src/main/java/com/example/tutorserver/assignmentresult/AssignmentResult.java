@@ -10,15 +10,17 @@ public class AssignmentResult {
 	@Id
 	private String Id;
 	private String studentId;
+	private String courseName;
 	private String assignmentName;
 	private List<String> outputFile;
 
 	public AssignmentResult() {
 	}
 	
-	public AssignmentResult(String studentId, String assignmentName, List<String> outputFile) {
+	public AssignmentResult(String studentId, String courseName, String assignmentName, List<String> outputFile) {
 		super();
 		this.studentId = studentId;
+		this.courseName = courseName;
 		this.assignmentName = assignmentName;
 		this.outputFile = outputFile;
 	}
@@ -31,6 +33,12 @@ public class AssignmentResult {
 	}
 	public void setStudentId(String studentId) {
 		this.studentId = studentId;
+	}
+	public String getCourseName() {
+		return courseName;
+	}
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
 	}
 	public String getAssignmentName() {
 		return assignmentName;

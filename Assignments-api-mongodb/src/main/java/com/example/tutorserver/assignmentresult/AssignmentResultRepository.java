@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AssignmentResultRepository  extends MongoRepository<AssignmentResult, String>{
 	public List<AssignmentResult> findByStudentId(String studentId);
-	public List<AssignmentResult> findByAssignmentName(String assignmentName);
-	public AssignmentResult findByAssignmentNameAndStudentId(String assignmentName, String studentId);
+	public List<AssignmentResult> findByCourseNameAndStudentId(String courseName, String studentId);
+	public List<AssignmentResult> findByAssignmentNameAndCourseName(String assignmentName, String courseName);
+	public AssignmentResult findByAssignmentNameAndCourseNameAndStudentId(String assignmentName, String courseName, String studentId);
 }

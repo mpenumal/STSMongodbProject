@@ -25,6 +25,7 @@ public class AssignmentResultDbSeeder implements CommandLineRunner {
 		// TODO Auto-generated method stub
 		AssignmentResult assignRes00 = new AssignmentResult(
 				"0000000000",
+				"CSE000",
 				"Assignment00",
 				defaultOutput
 				);

@@ -25,25 +25,31 @@ public class AssignmentResultController {
 		return this.assignmentResultRepository.findAll();
 	}
 	
-	@RequestMapping("/assignmentResults/studentSpecific/{studentId}")
+	@RequestMapping("/assignmentResults/{studentId}")
 	public List<AssignmentResult> findByStudentId(@PathVariable String studentId) {
 		return this.assignmentResultRepository.findByStudentId(studentId);
 	}
 	
-	@RequestMapping("/assignmentResults/assignmentSpecific/{assignmentName}")
-	public List<AssignmentResult> findByAssignmentName(@PathVariable String assignmentName) {
-		return this.assignmentResultRepository.findByAssignmentName(assignmentName);
+	@RequestMapping("/assignmentResults/studentSpecific/{courseName}/{studentId}")
+	public List<AssignmentResult> findByCourseNameAndStudentId(@PathVariable String courseName,@PathVariable String studentId) {
+		return this.assignmentResultRepository.findByCourseNameAndStudentId(courseName, studentId);
 	}
 	
-	@RequestMapping("/assignmentResults/{assignmentName}/{studentId}")
-	public AssignmentResult findByAssignmentNameAndStudentId(@PathVariable String assignmentName,@PathVariable String studentId) {
-		return this.assignmentResultRepository.findByAssignmentNameAndStudentId(assignmentName, studentId);
+	@RequestMapping("/assignmentResults/assignmentSpecific/{assignmentName}/{courseName}")
+	public List<AssignmentResult> findByAssignmentNameAndCourseName(@PathVariable String assignmentName, @PathVariable String courseName) {
+		return this.assignmentResultRepository.findByAssignmentNameAndCourseName(assignmentName, courseName);
+	}
+	
+	@RequestMapping("/assignmentResults/{assignmentName}/{courseName}/{studentId}")
+	public AssignmentResult findByAssignmentNameAndCourseNameAndStudentId(@PathVariable String assignmentName, @PathVariable String courseName, @PathVariable String studentId) {
+		return this.assignmentResultRepository.findByAssignmentNameAndCourseNameAndStudentId(assignmentName, courseName, studentId);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/assignmentResults")
 	public void saveAssignmentResult(@RequestBody AssignmentResult assignmentResult) {
-		AssignmentResult tempResult = this.assignmentResultRepository.findByAssignmentNameAndStudentId(
+		AssignmentResult tempResult = this.assignmentResultRepository.findByAssignmentNameAndCourseNameAndStudentId(
 																assignmentResult.getAssignmentName(), 
+																assignmentResult.getCourseName(), 
 																assignmentResult.getStudentId()
 																);
 		
