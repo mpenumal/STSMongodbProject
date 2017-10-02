@@ -50,8 +50,10 @@ public class AssignmentDbSeeder implements CommandLineRunner {
 		
 		Assignment assignment00 = new Assignment(
 				"Assignment00",
+				"CSE000",
 				"JAVA",
-				true,
+				"2017/09/30 00:00:00",
+				"2017/12/31 23:59:59",
 				"FilePath of the assignment in server.",
 				defaultContent
 				);
@@ -61,6 +63,9 @@ public class AssignmentDbSeeder implements CommandLineRunner {
 		
 		// add default assignments to db
 		List<Assignment> assignments = Arrays.asList(assignment00);
-		this.assignmentRepository.save(assignments);
+		Assignment temp = this.assignmentRepository.findByCourseNameAndAssignmentName("CSE000","Assignment00");
+		if (temp == null || !temp.getCourseName().equals("CSE000")) {
+			this.assignmentRepository.save(assignments);
+		}
 	}
 }

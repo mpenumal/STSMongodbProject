@@ -27,9 +27,14 @@ public class AssignmentController {
 		return this.assignmentRepository.findAll();
 	}
 	
-	@RequestMapping("/assignments/{name}")
-	public Assignment findByName(@PathVariable String name) {
-		return this.assignmentRepository.findByName(name);
+	@RequestMapping("/assignments/{courseName}")
+	public List<Assignment> findByCourseName(@PathVariable String courseName) {
+		return this.assignmentRepository.findByCourseName(courseName);
+	}
+	
+	@RequestMapping("/assignments/{courseName}/{assignmentName}")
+	public Assignment findByCourseNameAndAssignmentName(@PathVariable String courseName, @PathVariable String assignmentName) {
+		return this.assignmentRepository.findByCourseNameAndAssignmentName(courseName, assignmentName);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/assignments")
@@ -46,16 +51,21 @@ public class AssignmentController {
 			}
 		}
 		
-		Assignment tempCodeFile = this.assignmentRepository.findByName(assignment.getName());
+		Assignment tempAssignment = this.assignmentRepository.findByCourseNameAndAssignmentName(
+																assignment.getCourseName(), 
+																assignment.getAssignmentName()
+																);
 		
-		if (tempCodeFile != null && tempCodeFile.getName() != null &&
-				!tempCodeFile.getName().isEmpty() && !tempCodeFile.getName().equals("Assignment00"))
+		if (tempAssignment != null && tempAssignment.getAssignmentName() != null &&
+				!tempAssignment.getAssignmentName().isEmpty() && 
+				!tempAssignment.getAssignmentName().equals("Assignment00"))
 		{
-			tempCodeFile.setCodeFile(assignment.getCodeFile());
-			tempCodeFile.setShow(assignment.isShow());
-			tempCodeFile.setFilePath(assignment.getFilePath());
-			tempCodeFile.setLanguage(assignment.getLanguage());
-			this.assignmentRepository.save(tempCodeFile);
+			tempAssignment.setCodeFile(assignment.getCodeFile());
+			tempAssignment.setStartDate(assignment.getStartDate());
+			tempAssignment.setEndDate(assignment.getEndDate());
+			tempAssignment.setFilePath(assignment.getFilePath());
+			tempAssignment.setFileType(assignment.getFileType());
+			this.assignmentRepository.save(tempAssignment);
 		}
 		else
 		{
@@ -63,8 +73,8 @@ public class AssignmentController {
 		}
 	}
 	
-	@RequestMapping(method=RequestMethod.DELETE, value="/assignments/{name}")
-	public void deleteByName(@PathVariable String name) {
-		this.assignmentRepository.deleteByName(name);
+	@RequestMapping(method=RequestMethod.DELETE, value="/assignments/{courseName}/{assignmentName}")
+	public void deleteByName(@PathVariable String courseName, @PathVariable String assignmentName) {
+		this.assignmentRepository.deleteByCourseNameAndAssignmentName(courseName, assignmentName);
 	}
 }

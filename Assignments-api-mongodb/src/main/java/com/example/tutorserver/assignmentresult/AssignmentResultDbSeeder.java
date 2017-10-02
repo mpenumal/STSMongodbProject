@@ -35,6 +35,9 @@ public class AssignmentResultDbSeeder implements CommandLineRunner {
 		
 		// add default assignments to db
 		List<AssignmentResult> assignmentResults = Arrays.asList(assignRes00);
-		this.assignmentResultRepository.save(assignmentResults);
+		List<AssignmentResult> temp = this.assignmentResultRepository.findByStudentId("0000000000");
+		if (temp == null || temp.size() == 0) {
+			this.assignmentResultRepository.save(assignmentResults);
+		}
 	}
 }

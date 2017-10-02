@@ -9,20 +9,25 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Assignment {
 	@Id
 	private String Id;
-	private String name;
-	private String language;
-	private boolean show;
+	private String assignmentName;
+	private String courseName;
+	private String fileType;
+	private String startDate;
+	private String endDate;
 	private String filePath;
 	private List<String> codeFile;
 
 	public Assignment() {
 	}
 	
-	public Assignment(String name, String language, boolean show, String filePath, List<String> codeFile) {
+	public Assignment(String assignmentName, String courseName, String fileType, 
+						String startDate, String endDate, String filePath, List<String> codeFile) {
 		super();
-		this.name = name;
-		this.language = language;
-		this.show = show;
+		this.assignmentName = assignmentName;
+		this.courseName = courseName;
+		this.fileType = fileType;
+		this.startDate = startDate;
+		this.endDate = endDate;
 		this.filePath = filePath;
 		this.codeFile = codeFile;
 	}
@@ -30,30 +35,49 @@ public class Assignment {
 	public String getId() {
 		return Id;
 	}
-	public String getName() {
-		return name;
+
+	public String getAssignmentName() {
+		return assignmentName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setAssignmentName(String assignmentName) {
+		this.assignmentName = assignmentName;
 	}
-	public String getLanguage() {
-		return language;
+
+	public String getCourseName() {
+		return courseName;
 	}
-	public void setLanguage(String language) {
-		this.language = language;
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
 	}
-	public boolean isShow() {
-		return show;
+
+	public String getFileType() {
+		return fileType;
 	}
-	public void setShow(boolean show) {
-		this.show = show;
+	public void setFileType(String fileType) {
+		this.fileType = fileType;
 	}
+
+	public String getStartDate() {
+		return startDate;
+	}
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+	
+	public String getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
+	
 	public String getFilePath() {
 		return filePath;
 	}
 	public void setFilePath(String filePath) {
 		this.filePath = filePath;
 	}
+	
 	public List<String> getCodeFile() {
 		return codeFile;
 	}
