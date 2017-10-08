@@ -55,6 +55,8 @@ public class AssignmentDbSeeder implements CommandLineRunner {
 				"2017/09/30 00:00:00",
 				"2017/12/31 23:59:59",
 				"FilePath of the assignment in server.",
+				defaultContent,
+				"FilePath of the assignmentAnswer in server.",
 				defaultContent
 				);
 		

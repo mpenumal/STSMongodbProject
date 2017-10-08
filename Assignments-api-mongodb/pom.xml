@@ -5,11 +5,11 @@
 
 	<groupId>com.example.tutorserver</groupId>
 	<artifactId>Assignments-api-mongodb</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<packaging>jar</packaging>
-
-	<name>Assignments-api-mongodb</name>
-	<description>Assignments API with DB setup</description>
+	
+	<name>TutorPlugin-API</name>
+	<description>Assignments API for Tutor Plugin with DB setup</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -29,6 +29,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>

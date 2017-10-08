@@ -14,22 +14,26 @@ public class Assignment {
 	private String fileType;
 	private String startDate;
 	private String endDate;
-	private String filePath;
+	private String codeFilePath;
+	private String answerFilePath;
 	private List<String> codeFile;
+	private List<String> answerFile;
 
 	public Assignment() {
 	}
 	
-	public Assignment(String assignmentName, String courseName, String fileType, 
-						String startDate, String endDate, String filePath, List<String> codeFile) {
+	public Assignment(String assignmentName, String courseName, String fileType, String startDate, 
+			String endDate, String codeFilePath, List<String> codeFile, String answerFilePath, List<String> answerFile) {
 		super();
 		this.assignmentName = assignmentName;
 		this.courseName = courseName;
 		this.fileType = fileType;
 		this.startDate = startDate;
 		this.endDate = endDate;
-		this.filePath = filePath;
+		this.codeFilePath = codeFilePath;
 		this.codeFile = codeFile;
+		this.answerFilePath = answerFilePath;
+		this.answerFile = answerFile;
 	}
 	
 	public String getId() {
@@ -71,17 +75,31 @@ public class Assignment {
 		this.endDate = endDate;
 	}
 	
-	public String getFilePath() {
-		return filePath;
-	}
-	public void setFilePath(String filePath) {
-		this.filePath = filePath;
-	}
-	
 	public List<String> getCodeFile() {
 		return codeFile;
 	}
 	public void setCodeFile(List<String> codeFile) {
 		this.codeFile = codeFile;
+	}
+
+	public String getCodeFilePath() {
+		return codeFilePath;
+	}
+	public void setCodeFilePath(String codeFilePath) {
+		this.codeFilePath = codeFilePath;
+	}
+
+	public String getAnswerFilePath() {
+		return answerFilePath;
+	}
+	public void setAnswerFilePath(String answerFilePath) {
+		this.answerFilePath = answerFilePath;
+	}
+
+	public List<String> getAnswerFile() {
+		return answerFile;
+	}
+	public void setAnswerFile(List<String> answerFile) {
+		this.answerFile = answerFile;
 	}
 }

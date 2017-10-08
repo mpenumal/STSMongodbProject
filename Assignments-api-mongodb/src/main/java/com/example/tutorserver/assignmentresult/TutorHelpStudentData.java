@@ -11,6 +11,7 @@ public class TutorHelpStudentData {
 	private int runAttemptCount;
 	private int debugAttemptCount;
 	private String totalTime;
+	private String submissionTime;
 	private ArrayList<DurationInfo> durationList;
 	private ArrayList<PasteInfo> pasteList;
 	private ArrayList<ErrorInfo> runtimeErrorList;
@@ -20,7 +21,7 @@ public class TutorHelpStudentData {
 	}
 	
 	public TutorHelpStudentData(String studentId, String courseName, String assignmentName, boolean isSuccessful,
-			int linesOfCode, int runAttemptCount, int debugAttemptCount, String totalTime,
+			int linesOfCode, int runAttemptCount, int debugAttemptCount, String totalTime, String submissionTime,
 			ArrayList<DurationInfo> durationList, ArrayList<PasteInfo> pasteList, ArrayList<ErrorInfo> runtimeErrorList,
 			ArrayList<ErrorInfo> compilationErrorList) {
 		super();
@@ -32,6 +33,7 @@ public class TutorHelpStudentData {
 		this.runAttemptCount = runAttemptCount;
 		this.debugAttemptCount = debugAttemptCount;
 		this.totalTime = totalTime;
+		this.submissionTime = submissionTime;
 		this.durationList = durationList;
 		this.pasteList = pasteList;
 		this.runtimeErrorList = runtimeErrorList;
@@ -92,6 +94,13 @@ public class TutorHelpStudentData {
 	}
 	public void setTotalTime(String totalTime) {
 		this.totalTime = totalTime;
+	}
+	
+	public String getSubmissionTime() {
+		return submissionTime;
+	}
+	public void setSubmissionTime(String submissionTime) {
+		this.submissionTime = submissionTime;
 	}
 
 	public ArrayList<DurationInfo> getDurationList() {

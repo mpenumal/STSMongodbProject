@@ -40,11 +40,22 @@ public class AssignmentController {
 	@RequestMapping(method=RequestMethod.POST, value="/assignments")
 	public void saveAssignment(@RequestBody Assignment assignment) {
 		
-		// Get file from filePath and assign to codeFile
-		if (assignment.getFilePath() != null && !assignment.getFilePath().equals("")) {
+		// Get codeFile from codeFilePath and assign to 'codeFile' variable
+		if (assignment.getCodeFilePath() != null && !assignment.getCodeFilePath().equals("")) {
 			try {
-				File testFile = new File(assignment.getFilePath());
+				File testFile = new File(assignment.getCodeFilePath());
 				assignment.setCodeFile(Files.readAllLines(testFile.toPath()));
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		// Get answerFile from answerFilePath and assign to 'answerFile' variable
+		if (assignment.getAnswerFilePath() != null && !assignment.getAnswerFilePath().equals("")) {
+			try {
+				File testFile = new File(assignment.getAnswerFilePath());
+				assignment.setAnswerFile(Files.readAllLines(testFile.toPath()));
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -60,11 +71,14 @@ public class AssignmentController {
 				!tempAssignment.getAssignmentName().isEmpty() && 
 				!tempAssignment.getAssignmentName().equals("Assignment00"))
 		{
-			tempAssignment.setCodeFile(assignment.getCodeFile());
 			tempAssignment.setStartDate(assignment.getStartDate());
 			tempAssignment.setEndDate(assignment.getEndDate());
-			tempAssignment.setFilePath(assignment.getFilePath());
 			tempAssignment.setFileType(assignment.getFileType());
+			tempAssignment.setCodeFilePath(assignment.getCodeFilePath());
+			tempAssignment.setCodeFile(assignment.getCodeFile());
+			tempAssignment.setAnswerFilePath(assignment.getAnswerFilePath());
+			tempAssignment.setAnswerFile(assignment.getAnswerFile());
+			
 			this.assignmentRepository.save(tempAssignment);
 		}
 		else
