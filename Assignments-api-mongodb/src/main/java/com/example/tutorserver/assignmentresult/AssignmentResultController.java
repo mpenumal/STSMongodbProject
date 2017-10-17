@@ -375,7 +375,7 @@ public class AssignmentResultController {
 						matched = false;
 						break;
 					}
-					if (output.get(k).equals("")) {
+					while (output.get(k).equals("")) {
 						k += 1;
 					}
 					if (!assignment.getAnswerFile().get(j).equals(output.get(k))) {
