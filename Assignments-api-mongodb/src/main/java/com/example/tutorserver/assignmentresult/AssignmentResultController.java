@@ -315,7 +315,13 @@ public class AssignmentResultController {
 				ErrorInfo ce = new ErrorInfo();
 				ce.setMessage(output.get(i+1).split(Pattern.quote("|"))[1]);
 				ce.setFile(output.get(i+2).split(Pattern.quote("|"))[1]);
-				ce.setLineNumber(Integer.parseInt(output.get(i+3).split(Pattern.quote("|"))[1]));
+				if (output.get(i+3).split(Pattern.quote("|"))[1] != null && 
+						!output.get(i+3).split(Pattern.quote("|"))[1].equals("null")) {
+					ce.setLineNumber(Integer.parseInt(output.get(i+3).split(Pattern.quote("|"))[1]));
+				}
+				else {
+					ce.setLineNumber(-1);
+				}
 				ce.setCount(1);
 				
 				int count = 0;
